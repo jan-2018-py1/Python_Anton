@@ -1,0 +1,11 @@
+div{
+    width: 500px;
+    margin:auto; 
+}
+span{
+    float: left;
+}
+
+ul {
+    list-style-type: none;
+  }

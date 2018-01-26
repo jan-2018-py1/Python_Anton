@@ -1,0 +1,18 @@
+#wrapper{
+    width: 1000px;
+    margin: auto;
+}
+
+.loc{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+.loc *{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

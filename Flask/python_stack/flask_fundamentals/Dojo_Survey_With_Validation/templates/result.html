@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        function myFunction(){
+            window.open("/", "_self");
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Submitted Info</h1>
+        <ul>
+            <li>Name: {{ name }}</li>
+            <li>Dojo Location: {{ location }}</li>
+            <li>Favorite Language: {{ lang }}</li>
+            <li>Comment:  {{ comment }}</li>
+        </ul>
+        <button onclick="myFunction()">Go Back</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+
+
+    <script>
+        $(document).ready(function(){
+
+            $('#red').click(function(){
+                alert("we don't actually serve pizza...");
+                
+            });
+
+            $('#blue').click(function(){
+                alert("we don't actually serve pizza...");
+            });
+
+            $('#orange').click(function(){
+                alert("we don't actually serve pizza...");
+            });
+
+            $('#purple').click(function(){
+                alert("we don't actually serve pizza...");
+            });
+        });
+    </script>
+
+    <title>AJAX Ninja</title>
+</head>
+<body>
+    <div id="menu">
+        <input type="button" value="red" id="red">
+        <input type="button" value="blue" id="blue">
+        <input type="button" value="orange" id="orange">
+        <input type="button" value="purple" id="purple">
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Color Picker</title>
+    <style>
+        body{
+            background-color: {{x}};
+        }
+    </style>
+
+</head>
+<body>
+    <form action="/" method="POST">
+        <label for="red">Red</label>
+        <input type="text" name="red">
+        <label for="green">Green</label>
+        <input type="text" name="green">
+        <label for="blue">Blue</label>
+        <input type="text" name="blue">
+        <p>*All values must be between 1 and 255</p>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
