@@ -1,0 +1,13 @@
+div{
+    width: 900px;
+    margin: auto;
+}
+
+table, th, td{
+    border: 1px solid black;
+    text-align: center
+}
+
+table{
+    width: 100%;
+}
