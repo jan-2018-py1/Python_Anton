@@ -58,7 +58,7 @@ def reset():
 
 def casion():
     result = random.randrange(0,100)
-    if result<30:
+    if result<80:
         return "win"
     else: return "lost"
 
