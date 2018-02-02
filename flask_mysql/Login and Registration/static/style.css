@@ -1,0 +1,17 @@
+#wrapper{
+    width: 200px;
+    margin: 10px auto;
+    padding: 10px;
+    border-style: double;
+    text-align: left;
+    vertical-align: top;
+}
+
+button{
+    margin:10px auto;
+    display:block;
+}
+
+.message{
+    color: brown;
+}
