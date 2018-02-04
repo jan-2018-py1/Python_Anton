@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Login</title>
+</head>
+<body>
+    <div id="wrapper">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <p class="message">{{ message }}<p1>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form action="/lgn" method="post">
+            <label for="email">Email</label>
+            <input type="text" name="email">
+            <br>
+            <label for="pass">Password</label>
+            <input type="text" name="pass">
+            <br>
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+</html>

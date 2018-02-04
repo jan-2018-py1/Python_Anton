@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <div id="top">
+            <h1>Coding Dojo Wall</h1>
+            <a class="right" href="/lgoff">log off</a>
+            <p class="right"> Welcome, {{name}}</p>  
+        </div>
+        <div id="content">
+            <form action="/message" method="post">
+                <label for="message">Post a message</label>
+                <textarea name="message" cols="130" rows="3" maxlength="255"></textarea>
+                <button id="button_message">Post a message</button>
+            </form>
+            <div class="post">
+                {% for post in message %}
+                    <h3>{{ post["first_name"]}} {{post["last_name"]}} - {{ post["created_at"] }}</h3>
+                    <article>{{post["message"]}}</article>
+                    {% if flag: %}
+                        {% for user_comment in comments %}
+                            {% if post["id"] == user_comment["message_id"] %}
+                                <div class="comments">
+                                    <h3>{{ user_comment["first_name"]}} {{user_comment["last_name"]}} - {{ user_comment["created_at"] }}</h3>
+                                    <article>{{user_comment["comments"]}}</article>  
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        <form action="/comment/{{ post["id"] }}" id="comment_form" method="post">
+                            <label for="comment">Post a comment</label>
+                            <textarea name="comment" cols="100" rows="3" maxlength="255"></textarea>
+                            <button>Post a comment</button>
+                        </form>
+                    {%endif%}
+                {% endfor %}
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>

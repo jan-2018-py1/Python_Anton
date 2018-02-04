@@ -1,0 +1,68 @@
+#wrapper{
+    width: 200px;
+    margin: 10px auto;
+    padding: 10px;
+    border-style: double;
+    text-align: left;
+    vertical-align: top;
+}
+
+button{
+    margin:10px auto;
+    display:block;
+}
+
+.message{
+    color: brown;
+}
+
+#main{
+    width: 900px;
+    margin: 2px auto;
+}
+
+#top{
+    height: 55px;
+    width: 100%;
+}
+
+#top *{
+    display: inline-block;
+    vertical-align: top;
+    margin:5px;
+}
+
+.right{
+    float: right;
+}
+
+#comment_form{
+    width: 820px;
+    margin: 10px 0px 10px 175px;
+}
+
+#button_message{
+    float: right;
+    background-color:lightblue;
+    box-shadow: 2px 2px grey;
+}
+
+#comment_form button{
+    margin-right:100px;
+    background-color: greenyellow;
+    box-shadow: 2px 2px grey;
+}
+
+.post{
+    margin-top: 50px;
+}
+
+.comments{
+    margin:10px;
+    width: 800px;
+    float: right;
+}
+
+h3{
+   margin-bottom: 5px;
+}
