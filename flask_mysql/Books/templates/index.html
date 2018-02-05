@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+</head>
+<body>
+    <div id="main">
+        <h1>My Books</h1>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Author</th> 
+                <th>Date added</th>
+                <th>Action</th>
+            </tr>
+            {% for key in books%}
+            <tr>
+                <td>{{key["title"]}}</td>
+                <td>{{key["author"]}}</td> 
+                <td>{{key["created"]}}</td>
+                <td><a href="/edit/{{key['id']}}">Edit</a> <a href="/destroy/{{key['id']}}">Delete</a></td>
+            </tr>     
+            {% endfor %}
+        </table>
+        <input type="button" value="Add a book" onclick="window.location.href='/add'">
+    </div>
+</body>
+</html>
