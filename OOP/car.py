@@ -17,3 +17,4 @@ class Car(object):
         print ("Tax: ", self.price)
 
 ford = Car(2000, "35mph", "Full", "15mpg")
+ford_01 = Car(20000, "35mph", "Full", "15mpg")
