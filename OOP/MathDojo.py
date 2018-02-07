@@ -54,7 +54,7 @@ class MathDojo2(object):
         return self
 
 md = MathDojo2()
-md.add([1], 3,4).add([3,5,7,8], [2,4.3,1.25]).subtract(2, [2,3], [1.1,2.3]).total
+print md.add([1], 3,4).add([3,5,7,8], [2,4.3,1.25]).subtract(2, [2,3], [1.1,2.3]).total
 
 '''
 PART III
@@ -83,13 +83,13 @@ class MathDojo3(object):
                 temp = 0
                 for i in arg:
                     temp += i
-                self.total - temp      
+                self.total -= temp      
             elif type(arg) == tuple:
                 temp = 0
                 for i in arg:
                     temp += i
-                self.total - temp  
+                self.total -= temp  
         return self
 
 md = MathDojo3()
-md.add([1], 3,4).add([3,5,7,8], [2,4.3,1.25]).subtract(2, [2,3], [1.1,2.3]).total
+print md.add([1], 3,4).add((3,5,7,8), [2,4.3,1.25]).subtract(2, [2,3], [1.1,2.3]).total
