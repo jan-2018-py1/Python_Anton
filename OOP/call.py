@@ -17,6 +17,9 @@ class CallCenter(object):
         if calls == None:
             self.calls = []
             self.queue_size = 0
+        else:
+            self.calls = calls
+            self.queue_size = len(self.calls)
     def addCall(self, new_call):
         self.calls.append(new_call)
         self.queue_size = len(self.calls)
@@ -44,10 +47,9 @@ call2 = Call(2,"John Deer","410-560-1111","02/07/18 09:10am","Billing")
 call3 = Call(3,"Mark Sams","xxx-xxx-xxxx","02/07/18 09:30am","New Order")
 
 
-center = CallCenter()
-center.addCall(call1)
-center.addCall(call2)
-center.addCall(call3)
+center = CallCenter([call1, call2])
+center.info()
+
 
 center.removeCallByNumber("235-673-6437")
 center.info()
