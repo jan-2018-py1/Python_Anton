@@ -1,0 +1,12 @@
+git clone
+git clone <URL>
+git checkout -b <branch_name>
+git add -A
+git commit -m “some message for the save"
+git push origin <branch_name>
+
+
+django-admin startproject main
+python ../manage.py startapp first_app
+
+python manage.py runserver
