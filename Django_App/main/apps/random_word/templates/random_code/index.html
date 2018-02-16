@@ -13,7 +13,7 @@
         <h2>Random Word (attempt #{{request.session.attempts}})</h2>
             <h1 id="code">{{request.session.code}}</h1>
             <br>
-            <form action="/generate" method="GET">
+            <form action="/code/generate" method="GET">
                 {% csrf_token %}
                 <input id="generate" type="submit" value="Generate">
             </form>

@@ -13,4 +13,4 @@ def index(request, methods = "GET"):
 def getCode(request):
   request.session["code"] = get_random_string(length=12)
   request.session["attempts"] +=1
-  return redirect('random_code/index.html')
+  return redirect('/code')
