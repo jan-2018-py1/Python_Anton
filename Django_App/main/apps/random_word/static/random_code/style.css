@@ -1,0 +1,13 @@
+div {
+    margin: 20px auto;
+    width: 400px;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+#code{
+    display: inline-block;
+    border: 2px solid;
+    margin: 5px auto;
+}
+
