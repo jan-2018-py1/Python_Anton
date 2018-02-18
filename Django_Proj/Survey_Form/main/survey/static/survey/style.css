@@ -1,0 +1,26 @@
+form {
+    width: 300px;
+    margin:2px auto;
+    border: 2px solid;
+    padding: 3px;
+}
+
+#main{
+    width: 400px;
+    margin: 10px auto;
+}
+
+#main div{
+    border: 2px solid;
+    padding: 5px;
+}
+
+#green{
+    border: 2px solid;
+    padding: 5px;
+    background-color: forestgreen;
+}
+
+.blue{
+    background-color: dodgerblue;
+}
