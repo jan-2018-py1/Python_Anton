@@ -1,0 +1,33 @@
+.red{
+color: red;
+}
+
+.blue{
+    color: blue;
+    }
+
+.green{
+    color: green;
+    }
+
+#main{
+    width: 1000px;
+    margin: 10px auto;
+    padding: 10px;
+    vertical-align: top;
+}
+
+#left{
+    width: 330px;
+    display: inline-block;
+    margin: 5px;
+    vertical-align: top;
+    border-right: thick solid black;
+}
+
+#right{
+    width: 500px;
+    display: inline-block;
+    margin: 5px;
+    vertical-align: top;
+}
