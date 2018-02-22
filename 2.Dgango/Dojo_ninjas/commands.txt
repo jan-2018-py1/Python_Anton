@@ -1,0 +1,65 @@
+In [6]: Dojo.objects.create(name="AAAAAAA", city= "TestTown", state="QA"
+   ...: )
+Out[6]: <Dojo: Dojo object>
+
+In [7]: Dojo.objects.create(name="Anton Sil", city= "Baltimore", state="MD")
+Out[7]: <Dojo: Dojo object>
+
+In [8]: Dojo.objects.create(name="John Smith", city= "Washington", state="DC")
+Out[8]: <Dojo: Dojo object>
+
+In [9]: Dojo.objects.create(name="Make Sure", city= "Town", state="AA")
+Out[9]: <Dojo: Dojo object>
+
+In [10]: Dojo.objects.all().delete()
+Out[10]: (4, {u'D_Ninja.Dojo': 4, u'D_Ninja.Ninja': 0})
+
+In [11]: Dojo.objects.all().delete()
+Out[11]: (0, {})
+
+In [12]: Dojo.objects.create(name="Anton Sil", city= "Baltimore", state="MD")
+Out[12]: <Dojo: Dojo object>
+
+In [13]: Dojo.objects.create(name="Make Sure", city= "Town", state="AA")
+Out[13]: <Dojo: Dojo object>
+
+In [14]: Dojo.objects.create(name="John Smith", city= "Washington", state="DC")
+Out[14]: <Dojo: Dojo object>
+
+In [15]: Dojo.objects.create(name="AAAAAAA", city= "TestTown", state="QA")
+Out[15]: <Dojo: Dojo object>
+
+In [16]: Dojo.objects.all().delete()
+Out[16]: (4, {u'D_Ninja.Dojo': 4, u'D_Ninja.Ninja': 0})
+
+
+------------------------------------------------------------------------------------------
+
+In [1]: from D_Ninja.models import *
+
+In [2]: Ninja.objects.create(f_name="An1", l_name="ln2", state="md", dojo_id = Dojo.objects.get(id=9))
+Out[2]: <Ninja: Ninja object>
+
+In [3]: Ninja.objects.create(f_name="An2", l_name="ln3", state="ca", dojo_id = Dojo.objects.get(id=9))
+Out[3]: <Ninja: Ninja object>
+
+In [4]: Ninja.objects.create(f_name="Asec", l_name="fsec", state="MN", dojo_id = Dojo.objects.get(id=10))
+Out[4]: <Ninja: Ninja object>
+
+In [5]: Ninja.objects.create(f_name="Lsec", l_name="Lsec", state="MN", dojo_id = Dojo.objects.get(id=11))
+Out[5]: <Ninja: Ninja object>
+
+In [6]: Ninja.objects.create(f_name="Lsec1", l_name="Lsec1", state="DC", dojo_id = Dojo.objects.get(id=11))
+Out[6]: <Ninja: Ninja object>
+
+In [7]: Ninja.objects.create(f_name="Lsec5", l_name="Lsec5", state="FL", dojo_id = Dojo.objects.get(id=11))
+Out[7]: <Ninja: Ninja object>
+
+In [8]: Ninja.objects.filter(dojo_id = Dojo.objects.first().id)
+Out[8]: <QuerySet [<Ninja: Ninja object>, <Ninja: Ninja object>]>
+
+In [9]: Ninja.objects.filter(dojo_id = Dojo.objects.first().id).values()
+Out[9]: <QuerySet [{'l_name': u'ln2', 'f_name': u'An1', u'dojo_id_id': 9, u'id': 1, 'state': u'md'}, {'l_name': u'ln3', 'f_name': u'An2', u'dojo_id_id': 9, u'id': 2, 'state': u'ca'}]>
+
+In [10]: Ninja.objects.filter(dojo_id = Dojo.objects.last().id)
+Out[10]: <QuerySet [<Ninja: Ninja object>, <Ninja: Ninja object>, <Ninja: Ninja object>]>
