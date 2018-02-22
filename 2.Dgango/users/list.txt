@@ -1,0 +1,61 @@
+
+PS C:\Users\Anton\Desktop\Python Django\Class\2.Dgango\users> python manage.py migrate
+Operations to perform:  Apply all migrations: admin, auth, contenttypes, sessions, user_loginRunning migrations:
+  Applying user_login.0001_initial... OK
+PS C:\Users\Anton\Desktop\Python Django\Class\2.Dgangos> python manage.py shellPython 2.7.14 (v2.7.14:84471935ed, Sep 16 2017, 20:19:30) [MSC v.1500 32
+bit (Intel)]Type "copyright", "credits" or "license" for more information.
+IPython 5.5.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.object?   -> Details about 'object', use 'object??' for extra details.
+In [1]: from app.user_login.models import *
+In [2]: User.objects.create(first_name="anton", last_name = "Qa", email_
+   ...: address = "abc@mail.com", age = 25)
+Out[2]: <User: User object>
+
+In [3]: User.objects.create(first_name="nick", last_name = "test", email
+   ...: _address = "tf@mail.com", age = 36)
+Out[3]: <User: User object>
+
+In [4]: User.objects.all()
+Out[4]: <QuerySet [<User: User object>, <User: User object>]>
+
+In [5]: test = User.objects.all()
+
+In [6]: print test
+<QuerySet [<User: User object>, <User: User object>]>
+
+In [7]: User.objects.all().values()
+Out[7]: <QuerySet [{'first_name': u'anton', 'last_name': u'Qa', 'created_at': datetime.datetime(2018, 2, 22, 2, 48, 21, 163000, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 22, 2, 48, 21, 163000, tzinfo=<UTC>), u'id': 1, 'email_address': u'abc@mail.com', 'age': 25}, {'first_name': u'nick', 'last_name': u'test', 'created_at': datetime.datetime(2018, 2,
+22, 2, 49, 1, 552000, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 22, 2, 49, 1, 552000, tzinfo=<UTC>), u'id': 2, 'email_address': u'tf@mail.com', 'age': 36}]>
+
+In [8]: User.objects.first()
+Out[8]: <User: User object>
+
+In [9]: User.objects.last()
+Out[9]: <User: User object>
+
+In [10]: User.objects.all().__str__
+Out[10]: <method-wrapper '__str__' of QuerySet object at 0x06D31390>
+
+In [11]: User.objects.all().__dict__
+Out[11]:
+{'_db': None,
+ '_fields': None,
+ '_for_write': False,
+ '_hints': {},
+ '_iterable_class': django.db.models.query.ModelIterable,
+ '_known_related_objects': {},
+ '_prefetch_done': False,
+ '_prefetch_related_lookups': (),
+ '_result_cache': None,
+ '_sticky_filter': False,
+ 'model': app.user_login.models.User,
+ 'query': <django.db.models.sql.query.Query at 0x6d31670>}
+
+In [12]: User.objects.get(id=1).delete()
+Out[12]: (1, {u'user_login.User': 1})
+
+In [13]: exit()
+
+https://tutorial.djangogirls.org/en/django_orm/
