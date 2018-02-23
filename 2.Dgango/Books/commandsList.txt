@@ -1,0 +1,118 @@
+PS C:\Users\Anton\Desktop\Python Django\Class\2.Dgango\Books> python manage.py makemigrations
+PS C:\Users\Anton\Desktop\Python Django\Class\2.Dgango\Books> python manage.py migrate
+
+In [1]: from books_authors.models import *
+
+In [2]: Author.objects.create(first_name="Brad", last_name="Dayley", email= "brad@gmail.com")
+Out[2]: <Author: Author object>
+
+In [3]: Author.objects.create(first_name="Brendan", last_name="Dayley", email= "BrendanDayley@gmail.com")
+Out[3]: <Author: Author object>
+
+In [4]: Author.objects.create(first_name="Jay", last_name="Wantz", email= "JWantz@yahoo.com")
+Out[4]: <Author: Author object>
+
+In [5]: Author.objects.create(first_name="John", last_name="Maaa", email= "Maaa@mail.com")
+Out[5]: <Author: Author object>
+
+In [6]: Author.objects.all().values()
+Out[6]: <QuerySet [{'first_name': u'Brad', 'last_name': u'Dayley', 'created_at': datetime.datetime(2018, 2, 23, 0, 28, 48, 398000, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 23, 0, 28, 48, 398000, tzinfo=<UTC>), 'email': u'brad@gmail.com', u'id': 1}, {'first_name': u'Brendan', 'last_name': u'Dayley', 'created_at': datetime.datetime(2018, 2, 23, 0, 29, 48, 440000, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 23, 0, 29, 48, 440000, tzinfo=<UTC>), 'email': u'BrendanDayley@gmail.com', u'id': 2}, {'first_name': u'Jay', 'last_name': u'Wantz', 'created_at': datetime.datetime(2018, 2, 23, 0, 30, 38, 959000, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 23, 0, 30, 38, 959000, tzinfo=<UTC>), 'email': u'JWantz@yahoo.com', u'id': 3}, {'first_name': u'John', 'last_name': u'Maaa', 'created_at': datetime.datetime(2018, 2, 23, 0, 31, 26, 608000, tzinfo=<UTC>), 'updated_at': datetime.datetime(2018, 2, 23, 0, 31, 26, 608000, tzinfo=<UTC>), 'email': u'Maaa@mail.com', u'id': 4}]>
+
+In [7]: Author.objects.create(first_name="Mike", last_name="Mikel", email= "Mike@hotbox.us")
+Out[7]: <Author: Author object>
+
+In [8]: Book.objects.create(name="JAVA", desc= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt u
+   ...: t labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla paria
+   ...: tur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+Out[8]: <Book: Book object>
+
+In [9]: Book.objects.create(name="Python", desc= "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nu
+   ...: lla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+Out[9]: <Book: Book object>
+
+In [10]: Book.objects.create(name="PHP", desc= "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+   ...:  pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+Out[10]: <Book: Book object>
+
+In [11]: Book.objects.create(name="Ruby", desc= "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat null
+   ...: a pariatur.")
+Out[11]: <Book: Book object>
+
+In [12]: exit()
+
+
+In [1]: from books_authors.models import *
+
+In [2]: b = Book.objects.last()
+
+In [3]: b.name = "C#"
+
+In [7]: b.save()
+
+In [8]: a = Author.objects.get(id=5)
+
+In [9]: a.first_name = "Ketul"
+
+In [10]: a.save()
+
+In [11]: a = Author.objects.get(id=1)
+
+In [14]: a = Author.objects.get(id=1)
+
+In [16]: books = Book.objects.get(id=1)
+
+In [17]: books.author.add(a)
+
+In [18]: Book.objects.get(id=2).author.add(a)
+
+In [19]: Book.objects.get(id=1).author.add(Author.objects.get(id=2))
+
+In [20]: Book.objects.get(id=2).author.add(Author.objects.get(id=2))
+
+In [21]: Book.objects.get(id=3).author.add(Author.objects.get(id=2))
+
+In [22]: Book.objects.get(id=1).author.add(Author.objects.get(id=3))
+
+In [23]: Book.objects.get(id=2).author.add(Author.objects.get(id=3))
+
+In [24]: Book.objects.get(id=3).author.add(Author.objects.get(id=3))
+
+In [25]: Book.objects.get(id=4).author.add(Author.objects.get(id=3))
+
+In [28]: Book.objects.get(id=1).author.add(Author.objects.get(id=5))
+
+In [29]: Book.objects.get(id=2).author.add(Author.objects.get(id=5))
+
+In [30]: Book.objects.get(id=3).author.add(Author.objects.get(id=5))
+
+In [31]: Book.objects.get(id=4).author.add(Author.objects.get(id=5))
+
+In [32]: Book.objects.get(id=5).author.add(Author.objects.get(id=5))
+
+In [37]: Book.objects.filter(author = Author.objects.get(id=4))
+Out[37]: <QuerySet []>
+
+In [38]: Book.objects.filter(author = Author.objects.get(id=4)).values()
+Out[38]: <QuerySet []>
+
+In [40]: Book.objects.filter(author = Author.objects.get(id=4))
+Out[40]: <QuerySet []>
+
+In [41]: Book.objects.filter(author = Author.objects.get(id=4)).values
+Out[41]: <bound method QuerySet.values of <QuerySet []>>
+
+In [47]: this_books = Book.objects.all()
+
+In [49]: this_books = Book.objects.get(id=3)
+
+In [50]: this_books.author.all()
+Out[50]: <QuerySet [<Author: Author object>, <Author: Author object>, <Author: Author object>]>
+
+In [51]: this_books.author.all().values
+Out[51]: <bound method QuerySet.values of <QuerySet [<Author: Author object>, <Author: Author object>, <Author: Author object>]>>
+
+In [52]: this_books.author.all().values()
+Out[52]: <QuerySet [{'first_name': u'Brendan', 'last_name': u'Dayley', 'notes': u'', 'updated_at': datetime.datetime(2018, 2, 23, 0, 29, 48, 440000, tzinfo=<UTC>), u'id': 2, 'email': u'BrendanDayley@gmail.com', 'created_at': datetime.datetime(2018, 2, 23, 0, 29, 48, 440000, tzinfo=<UTC>)}, {'first_name': u'Jay', 'last_name': u'Wantz', 'notes': u'', 'updated_at': datetime.datetime(2018, 2, 23, 0, 30, 38, 959000, tzinfo=<UTC>), u'id': 3, 'email': u'JWantz@yahoo.com', 'created_at': datetime.datetime(2018, 2, 23, 0, 30, 38, 959000, tzinfo=<UTC>)}, {'first_name': u'Ketul', 'last_name': u'Mikel', 'notes': u'', 'updated_at': datetime.datetime(2018, 2, 23, 1, 31, 40, 225000, tzinfo=<UTC>), u'id': 5, 'email': u'Mike@hotbox.us', 'created_at': datetime.datetime(2018, 2, 23, 0, 34, 33, 358000, tzinfo=<UTC>)}]>
+
+In [55]: this_books.author.first().delete()
+Out[55]: (4, {u'books_authors.Author': 1, u'books_authors.Book_author': 3})
