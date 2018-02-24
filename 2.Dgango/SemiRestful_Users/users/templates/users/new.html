@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" media-"screen" title="no title" charset="utf-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        {% if messages %}
+                {% for message in messages %}
+                <script>
+                        alert('{{ message }}');
+                </script>
+                {% endfor %}
+        {% endif %}
+        <h1>Add a new user</h1>
+        <form action="create/" method="POST">
+            {% csrf_token %} 
+            <label for="f_name">First name:</label>
+            <input name="f_name" type="text">
+            <br>
+            <label for="l_name">Last name:</label>
+            <input name="l_name" type="text">
+            <br>
+            <label for="email">Email:</label>
+            <input name="email" type="text">
+            <button>Create</button>
+            <a href="/users">Go Back</a>
+            <br>
+        </form>
+    </div>
+</body>
+</html>

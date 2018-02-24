@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                alert('{{ message }}');
+            </script>
+        {% endfor %}
+    {% endif %}
+    <div id="main">
+        <h1>Edit User {{id}}</h1>
+        <form action="updateuser" method="post">
+            {% csrf_token %} 
+            <label for="f_name">First name:</label>
+            <input name="f_name" type="text">
+            <br>
+            <label for="l_name">Last name:</label>
+            <input name="l_name" type="text">
+            <br>
+            <label for="email">Email:</label>
+            <input name="email" type="text">
+            <br>
+            <button>Update</button>
+            <br>
+            <a href="/users/user/{{id}}">Show</a> | 
+            <a href="javascript:history.back()">Go Back</a>
+            <br>
+        </form>
+    </div>
+</body>
+</html>

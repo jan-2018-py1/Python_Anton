@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" media-"screen" title="no title" charset="utf-8">
+    <title>User</title>
+</head>
+<body>
+    <div id="main">
+        <h1>User {{user.id}}</h1>
+        <ul>
+            <li>Full name: {{user.first_name}} {{user.last_name}}</li>
+            <li>Email: {{user.email_address}}</li>
+            <li>Created at: {{user.created_at}}</li>
+        </ul> 
+        <a href="/users/{{user.id}}/edit">Edit</a> | <a href="/users/{{user.id}}/destroy">Delete</a> 
+    </div>
+    
+</body>
+</html>
