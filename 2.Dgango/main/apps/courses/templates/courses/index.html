@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" media-"screen" title="no title" charset="utf-8">
+    <title>Courses</title>
+</head>
+<body>
+    <div id="main">
+        {% if messages %}
+            {% for message in messages %}
+            <script>
+                    alert('{{ message }}');
+            </script>
+            {% endfor %}
+        {% endif %}
+        <h1>Add a new course</h1>
+        <form action="/courses/add/" method="post">
+            {% csrf_token %} 
+            <label for="name">Name:</label>
+            <input type="text" name="name">
+            <br>
+            <label for="desc">Description:</label>
+            <textarea name="desc" cols="30" rows="10"></textarea>
+            <br>
+            <button type="submit">Add</button>
+        </form>
+        <h1>Courses</h1>
+        <table>
+            <tr>
+                <th>Course Name</th>
+                <th>Description</th>
+                <th>Date added</th>
+                <th>Actions</th>
+            </tr>
+            <tbody>
+            {% for key in courses %}
+                <tr>
+                    <td>{{key.name}}</th>
+                    <td>{{key.description}}</td>
+                    <td>{{key.created_at}}</td>
+                    <td>
+                       <a href="destroy/{{key.id}}">Remove</a> | <a href="comments/{{key.id}}">Comments</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

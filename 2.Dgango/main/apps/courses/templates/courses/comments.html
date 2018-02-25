@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comments</title>
+</head>
+<body>
+    <form action="/courses/add_comment/{{course_id}}" method="post">
+        {% csrf_token %} 
+        <label for="comment">Your comment:</label>
+        <textarea name="comment" cols="30" rows="10"></textarea>
+        <button>Post</button>
+    </form>
+
+    <button onclick="location.href = '/courses';">Go Back!</button>
+    {% for key in comments %}
+        <p>{{key.comment}} - {{key.created_at}}</p>
+        <br>
+    {% endfor %}
+</body>
+</html>
