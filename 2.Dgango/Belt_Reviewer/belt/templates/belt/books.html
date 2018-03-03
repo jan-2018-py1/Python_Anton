@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'belt/style.css' %}" media-"screen" title="no title" charset="utf-8">
+    <title>Books home</title>
+</head>
+<body>
+    <div id="main">
+        <div id="top">
+            <h1 class="topH">Welcome, {{request.session.name}}</h1>
+            <div class="right">
+                <a href="/add">Add Book and Review</a> | 
+                <a href="/reset">Logout</a>
+            </div>
+        </div>
+        <div id="booklist">
+            <h2>Recent book added</h2> 
+            {% for book in books %}
+                <a href="/book/{{book.id}}">{{book.title}}</a>
+                <p>Rating: {{book.rating}}</p>
+                <p><a href="/users/">{{comments}}</a> says: {{comments}}</p>
+                <p>Posted on {{book.created_at}}</p>
+            {% endfor %}
+        </div>
+        <div class="right">
+            <h2>Other Books with Reviews:</h2>
+            <div>
+                {% for book in other_books %}
+                    <a href="/book/{{book.id}}">{{book.title}}</a> <br/>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

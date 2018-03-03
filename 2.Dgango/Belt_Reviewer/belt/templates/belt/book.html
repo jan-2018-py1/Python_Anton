@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Info</title>
+</head>
+<body>
+    <h1>{{book.title}}</h1>
+    <h2>{{book.author.author}}</h2>
+    <h3>Reviews:</h3>
+    <ul>
+        {% for key in reviews %}
+            <p>{{key.user.name}}: says: {{key.text}}</p>
+            <p>{{posted}}</p>
+        {% endfor %}
+    </ul>
+
+    <form action="/review_it/{{book.id}}" method="post">
+        {% csrf_token %}
+        Add a Review:
+        <textarea name="review" cols="30" rows="10"></textarea>
+        <br>
+        Rating
+        <select name="rating">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+        </select>
+    <br><br>
+        <button>Submit Review</button>
+    </form>
+</body>
+</html>

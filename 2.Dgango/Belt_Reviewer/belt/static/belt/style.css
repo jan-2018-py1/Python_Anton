@@ -1,0 +1,31 @@
+#main{
+    margin:15px auto;
+    width: 900px;
+}
+
+fieldset{
+    width: 350px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#top{
+    padding: 5px;
+}
+
+.topH{
+    display: inline;
+}
+
+.right{
+    float: right;
+}
+
+#right{
+    width: 200px;
+    float: right;
+}
+
+#booklist{
+    width: 500px;
+}

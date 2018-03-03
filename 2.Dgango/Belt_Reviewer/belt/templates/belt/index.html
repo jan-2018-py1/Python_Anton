@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+        <link rel="stylesheet" href="{% static 'belt/style.css' %}" media-"screen" title="no title" charset="utf-8">
+    <title>Belt</title>
+</head>
+<body>
+    <div id="main">
+        <h1>Welcome!</h1>
+        <fieldset>
+            <legend>Registration</legend>
+            <form action="/registration" method="post">
+                {% csrf_token %} 
+                <legend>General Information</legend>
+                Name:<br>
+                <input type="text" name="name">
+                <br>
+                Alias:<br>
+                <input type="text" name="alias">
+                <br>
+                Email:<br>
+                <input type="text" name="email">
+                <br>
+                Password:<br>
+                <input type="text" name="pass">
+                <br>
+                <span>* Password should be at least 8 characters</span>
+                <br>
+                Confirm PW:<br>
+                <input type="text" name="cpass">
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Login</legend>
+            <form action="/login" method="post">
+                {% csrf_token %} 
+                Email:<br>
+                <input type="text" name="lemail">
+                <br>
+                Password:<br>
+                <input type="text" name="lpass">
+                <br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </fieldset>
+    </div>
+    {% if messages %}
+        {% for message in messages %}
+            <script>
+                alert('{{ message }}');
+            </script>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

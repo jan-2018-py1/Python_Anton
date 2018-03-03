@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>users</title>
+</head>
+<body>
+    <div id="main">
+        <div id="top">
+            <a href="/book/">home</a>
+            <a href="/add">Add Book and Review</a>
+            <a href="/reset">Logout</a>
+        </div>
+        <div id="info">
+            <h1>User Alias: {{user.alias}}</h1>
+            <h1>Name: {{user.name}}</h1>
+            <h1>Email: {{user.email}}</h1>
+            <h1>Total review: {{total}}</h1>
+
+            <h2>Posted Reviews on following books:</h2>
+            <ul>   
+                {% for i in array%}
+                <li><a href="{{book.name}}"> {{books}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
